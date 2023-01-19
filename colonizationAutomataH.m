@@ -69,5 +69,16 @@ for t=2:numberOfGenerations
     end
   end
 end
+% count the number of occupied cells in each timestep
+for i=1:numberOfGenerations,
+    NO(i,1)=sum(sum(G(:,:,i)));
+end
+% plot the result
+figure;
+plot(NO./gridSize^2,'b-')
+ylim([0 1])
+ylabel('proportion occupied')
+xlabel('timestep')
+
 
 
