@@ -58,12 +58,12 @@ for t=2:numberOfGenerations
         occ=sum(G(n+(t-2)*gridSize*gridSize));
         
         % check for colonization
-        if p(i,j) < % YOUR WORK HERE
-          G(i,j,t)= % YOUR WORK HERE
+        if p(i,j) < m*occ
+          G(i,j,t)= 1;
         end
       else % G(i,j,t-1) occupied, check for extinction & apply it if appropriate
-        if % YOUR WORK HERE
-          % YOUR WORK HERE
+        if p(i,j) < e
+          G(i,j,t)= 0;
         end
       end
     end
