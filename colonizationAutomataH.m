@@ -14,8 +14,9 @@ rand('seed',95); % set to 95 for initial exercise
 % Setup parameters
 gridSize = 10; % length of a grid edge
 numberOfGenerations = 100;
-m = 0.05; % recolonization probability per each neighbour
-e = 0.16; % extinction probability
+d = 1; % timescale dilator
+m = 0.05*d; % recolonization probability per each neighbour
+e = 0.16*d; % extinction probability
 
 % Setup position grid for quickly finding neighbours
 [X,Y]=meshgrid(1:gridSize,1:gridSize);
