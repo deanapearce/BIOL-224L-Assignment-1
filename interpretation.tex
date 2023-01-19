@@ -1,0 +1,48 @@
+\documentclass[titlepage]{scrartcl}
+\addtokomafont{disposition}{\rmfamily}
+%opening
+\titlehead{BIOL 224L}
+\title{Assignment 1}
+\date{\today}
+\author{Dean Pearce}
+
+\begin{document}
+
+\maketitle
+%\tableofcontents
+%\clearpage
+\part*{Interpretation}
+\section{Recolonization Probability}
+It would appear that the minimum recolonization probability which does not result in the eventual extinction of the plant lineage is between $ 0.0331 $ and $ 0.0332 $.
+%INSERT FIGURES
+\section{Grid Size}
+It does not seem that the grid size has a substantial effect on the proportion of cells occupied.
+\section{Connectedness}
+A switch from a 8-connected neighborhood to a 4-connected neighborhood was accomplished by modification of the neighbor search distance from 2.1 to 1.05, as follows.\\\\
+Original:
+\begin{verbatim*}
+n=find((Xp.^2+Yp.^2)<2.1);
+\end{verbatim*}
+Modified:
+\begin{verbatim*}
+n=find((Xp.^2+Yp.^2)<1.05);
+\end{verbatim*}
+This change does have a substantial effect upon the behavior of the model; the plant populations are much more likely to go extinct given that other parameters are unchanged. (See fig m0.05)  More broadly, it is insufficient to merely double m to restore 8-connected neighborhood behavior, as the basal assumptions of the model have been modified. (See fig m0.10)
+\section{Timescale}
+In this analysis, we set a value d which serves as a factor by which to dilate the timescale of the model.
+\begin{verbatim}
+	% Setup parameters
+	<...>
+	d = 1; % timescale dilator
+	m = 0.05*d; % recolonization probability per each neighbour
+	e = 0.16*d; % extinction probability
+\end{verbatim}
+AN important distinction is that such a dilator affects the amount that happens in a single timestep, i.e. an increase in the extinction / recolonization probabilities causes greater variability per timestep
+\section{Reasonableness of Boundary Conditions}
+\begin{quote}
+	"In this simulation, we will use an absorbing boundary such that cells at the edge of	the grid do not have neighbors, and thus have a lower chance of colonization if	unoccupied."
+\end{quote}
+Such an assumption is, broadly, reasonable.  
+\section{Significance of Edges}
+
+\end{document}
